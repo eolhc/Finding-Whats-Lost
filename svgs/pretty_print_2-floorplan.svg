@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+<defs>
+    <style>.cls-1{fill:none;stroke:#29abe2;stroke-width:0.5px;}.cls-1,.cls-2{stroke-miterlimit:10;}.cls-2{fill:#fff;stroke:#000;}.cls-3,.cls-4,.cls-5{font-size:12px;}.cls-3{font-family:MyriadPro-Regular, Myriad Pro;}.cls-4{font-family:Helvetica-Light, Helvetica;}.cls-5{font-family:Helvetica, Helvetica;}.cls-6{letter-spacing:-0.02em;}</style>
+</defs>
+<title>2-floorplan</title>
+<g id="GROUND">
+    <polyline class="cls-2" points="569.5 172.5 938.5 171.5 938.5 370.5 725.5 370.5 725.5 271.5 569.5 271.5 569.5 172.5 938.5 171.5"/>
+</g>
+<g id="ROOMS">
+    <rect class="cls-2" x="725.16" y="271.58" width="85.04" height="99.21"/>
+    <rect class="cls-2" x="569.57" y="172.27" width="155.91" height="99.21"/>
+    <rect class="cls-2" x="853.16" y="171.97" width="85.04" height="198.43"/>
+    <rect class="cls-2" x="810.72" y="271.58" width="42.52" height="99.21"/>
+</g>
+<g id="ROOM-NAMES">
+    <text class="cls-5" transform="translate(747.6 229.06)">S<tspan class="cls-6" x="8" y="0">T</tspan>
+    <tspan x="15.12" y="0">OREROOM-2</tspan>
+</text>
+<text class="cls-5" transform="translate(882.49 275.72)">LAB-2</text>
+<text class="cls-5" transform="translate(754.13 323.89)">LAB-1</text>
+<text class="cls-5" transform="translate(607.6 228.76)">S<tspan class="cls-6" x="8" y="0">T</tspan>
+<tspan x="15.12" y="0">OREROOM-1</tspan>
+</text>
+</g>
+</svg>
