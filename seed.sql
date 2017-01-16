@@ -35,3 +35,8 @@ INSERT INTO locations (description, grid_x, grid_y, level) values ('office_1',35
 INSERT INTO locations (description, grid_x, grid_y, level) values ('office_2',31,12,1);
 INSERT INTO locations (description, grid_x, grid_y, level) values ('office-3',27,12,1);
 INSERT INTO locations (description, grid_x, grid_y, level) values ('reception',35,7,1);
+
+INSERT INTO nodes (tag_location_id) values (1);
+INSERT INTO nodes (tag_location_id) values (2);
+INSERT INTO nodes (tag_location_id) values (3);
+INSERT INTO nodes (tag_location_id) values (4);
