@@ -63,19 +63,6 @@
 }
 
 
-
-.room__names a {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
-
-
 @font-face {
 	font-family: 'codropsicons';
 	font-weight: normal;
@@ -369,55 +356,6 @@ button:focus {
 	transform: translateZ(-60vmin);
 }
 
-
-/* Level nav */
-.officenav {
-	position: absolute;
-	top: 0;
-	right: 0;
-	text-align: center;
-	-webkit-transition: opacity 0.8s;
-	transition: opacity 0.8s;
-}
-
-.officenav--hidden {
-	pointer-events: none;
-	opacity: 0;
-}
-
-/* Box button */
-.boxbutton {
-	font-size: 2em;
-	display: block;
-	width: 2em;
-	height: 2em;
-	margin: 0;
-	padding: 0;
-	color: #fff;
-	border: 0;
-	background: #d7d7dc;
-}
-
-.boxbutton--dark {
-	background: #c4c4c7;
-}
-
-.boxbutton--darker {
-	background: #2c2c2f;
-}
-
-.boxbutton--alt {
-	background: #3d1975;
-}
-
-.boxbutton--disabled,
-.boxbutton--disabled:focus,
-.boxbutton--disabled:hover {
-	cursor: default;
-	pointer-events: none;
-	opacity: 0.2;
-}
-
 /* Level map */
 
 .map__ground {
@@ -435,20 +373,6 @@ button:focus {
 	fill: #a6a3a8;
 }
 
-.map__tree {
-	fill: #7bad7f;
-}
-
-.map__lake {
-	fill: #a2bbdd;
-}
-
-.map__space {
-	-webkit-transition: fill-opacity 0.8s;
-	transition: fill-opacity 0.8s;
-	fill: #bdbdbd;
-	fill-opacity: 0.6;
-}
 
 .level--current .map__space {
 	fill-opacity: 1;
@@ -477,22 +401,6 @@ button:focus {
 
 .room {
 	position: absolute;
-	/*width: 5.5vmin;*/
-	/*height: 8.25vmin;*/
-	/*margin: -8.25vmin 0 0 -2.25vmin; /* let the bottom tip be the reference point for individual coordinates*/
-	/*-webkit-transform: rotateZ(-20deg) rotateZ(45deg) rotateX(-70deg);
-	transform: rotateZ(-20deg) rotateZ(45deg) rotateX(-70deg);
-	-webkit-transform-origin: 50% 100%;
-	transform-origin: 50% 100%;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;*/
-}
-
-.raise {
-  position: absolute;
-  -webkit-transform: translateZ(90vmin);
-  transform: translate3d(0,0,20px);
-
 }
 
 .room__box {
@@ -515,6 +423,7 @@ button:focus {
 	transform: translate3d(0,0,0);
 }
 
+/*need to make this a script*/
 .room:nth-child(2) .room__box {
 	-webkit-transition-delay: 0.05s;
 	transition-delay: 0.05s;
@@ -548,83 +457,8 @@ button:focus {
 	transition-delay: 0.4s;
 }
 
-.room[data-category='1'] .box--room {
-	fill: #7cbf7f;
-}
-.room[data-category='2'] .box--room {
-	fill: #6584c7;
-}
-.room[data-category='3'] .box--room {
-	fill: #dc4b7c;
-}
-.room[data-category='4'] .box--room {
-	fill: #8d65e0;
-}
 
-.room--active .box--room {
+.room--active  {
 	stroke: #515158;
 	stroke-width: 15px;
 }
-
-.box--room {
-	width: 100%;
-	height: 100%;
-}
-
-.box--logo {
-	position: absolute;
-	top: 11%;
-	left: 25%;
-	width: 50%;
-	height: 50%;
-	fill: white;
-	fill-opacity: 0.6;
-	-webkit-transition: fill-opacity 0.3s;
-	transition: fill-opacity 0.3s;
-}
-
-.room--active .box--logo,
-.room:hover .box--logo {
-	fill-opacity: 1;
-}
-
-/* rooms for floor 1 */
-.room--1-1 { top: 60vmin; left: 8vmin; }
-.room--1-2 { top: 15vmin; left: 15vmin; }
-.room--1-3 { top: 15vmin; left: 88vmin; }
-.room--1-4 { top: 40vmin; left: 77vmin; }
-.room--1-5 { top: 33vmin; left: 38vmin; }
-.room--1-6 { top: 6vmin; left: 27vmin; }
-.room--1-7 { top: 36vmin; left: 61vmin; }
-.room--1-8 { top: 9vmin; left: 59vmin; }
-.room--1-9 { top: 8vmin; left: 51vmin; }
-
-/* rooms for floor 2 */
-.room--2-1 { top: 7vmin; left: 22vmin; }
-.room--2-2 { top: 39vmin; left: 5vmin; }
-.room--2-3 { top: 21vmin; left: 84vmin; }
-.room--2-4 { top: 39vmin; left: 53vmin; }
-.room--2-5 { top: 14vmin; left: 50vmin; }
-.room--2-6 { top: 60vmin; left: 15vmin; }
-.room--2-7 { top: 34vmin; left: 37vmin; }
-.room--2-8 { top: 52vmin; left: 74vmin; }
-
-/* rooms for floor 3 */
-.room--3-1 { top: 17vmin; left: 15vmin; }
-.room--3-2 { top: 42vmin; left: 5vmin; }
-.room--3-3 { top: 19vmin; left: 85vmin; }
-.room--3-4 { top: 61vmin; left: 57vmin; }
-.room--3-5 { top: 58vmin; left: 25vmin; }
-.room--3-6 { top: 30vmin; left: 57vmin; }
-.room--3-7 { top: 32vmin; left: 37vmin; }
-
-/* rooms for floor 4 */
-.room--4-1 { top: 55vmin; left: 21vmin; }
-.room--4-2 { top: 18vmin; left: 20vmin; }
-.room--4-3 { top: 21vmin; left: 88vmin; }
-.room--4-4 { top: 52vmin; left: 74vmin; }
-.room--4-5 { top: 33vmin; left: 38vmin; }
-.room--4-6 { top: 39vmin; left: 56vmin; }
-.room--4-7 { top: 58vmin; left: 10vmin; }
-
-/* Mobile compatability */

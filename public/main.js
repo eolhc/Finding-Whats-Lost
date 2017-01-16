@@ -111,8 +111,6 @@
 	function showRooms() {
 		var levelEl = levelEl || officeLevels[selectedLevel - 1];
 		classie.add(levelEl.querySelector('.level__rooms'), 'level__rooms--active');
-		highlightRoom();
-
 	}
 
 	/**
