@@ -3,6 +3,21 @@
 
 	'use strict';
 
+	// helper functions
+	// from https://davidwalsh.name/vendor-prefix
+	var prefix = (function () {
+		var styles = window.getComputedStyle(document.documentElement, ''),
+			pre = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
+			dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
+
+		return {
+			dom: dom,
+			lowercase: pre,
+			css: '-' + pre + '-',
+			js: pre[0].toUpperCase() + pre.substr(1)
+		};
+	})();
+
 	// vars & stuff
 	var support = {transitions : Modernizr.csstransitions},
 		transEndEventNames = {'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend'},
@@ -22,7 +37,6 @@
 				onEndCallbackFn();
 			}
 		},
-		// the office element
 		office = document.querySelector('.office'),
 		officeLevelsEl = office.querySelector('.levels'),
 		officeLevels = [].slice.call(officeLevelsEl.querySelectorAll('.level')),
@@ -31,7 +45,9 @@
 		rooms = [].slice.call(officeLevelsEl.querySelectorAll('.room')),
 		isExpanded,
 		containerEl = document.querySelector('.container');
+
 	function init() {
+		// init/bind events
 		initEvents();
 	}
 
@@ -46,11 +62,10 @@
 				showLevel(pos+1);
 			});
 		});
+
 	}
 
-	/**
-	 * Opens a level. The current level moves to the center while the other ones move away.
-	 */
+
 	function showLevel(level) {
 		if( isExpanded ) {
 			return false;
@@ -59,8 +74,6 @@
 		// update selected level val
 		selectedLevel = level;
 
-		// control navigation controls state
-		// setNavigationState();
 
 		classie.add(officeLevelsEl, 'levels--selected-' + selectedLevel);
 
@@ -77,19 +90,8 @@
 			isExpanded = true;
 		}, 'transform');
 
-		// hide surroundings element
-		// hideSurroundings();
-
-		// show office nav ctrls
-		// showMallNav();
-
-		// filter the spaces for this level
-		// showLevelSpaces();
 	}
 
-	/**
-	 * Shows all Mall´s levels
-	 */
 	function showAllLevels() {
 		if( isNavigating || !isExpanded ) {
 			return false;
@@ -103,12 +105,13 @@
 		// hide level rooms
 		removeRooms();
 
-	/**
-	 * Shows the level´s rooms
-	 */
+
+	}
+
 	function showRooms() {
 		var levelEl = levelEl || officeLevels[selectedLevel - 1];
 		classie.add(levelEl.querySelector('.level__rooms'), 'level__rooms--active');
+		highlightRoom();
 
 	}
 
