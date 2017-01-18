@@ -413,3 +413,10 @@ button:focus {
 	stroke: #515158;
 	stroke-width: 15px;
 }
+
+@media screen and (max-width: 65.625em), screen and (max-height: 40.625em) {
+
+  .main {
+    width: 100vw;
+  }
+}
