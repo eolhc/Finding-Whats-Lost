@@ -1,3 +1,13 @@
+var office;
+var officeLevelsEl;
+var officeLevels;
+var officeLevelsTotal;
+var rooms;
+var isExpanded;
+var containerEl;
+var selected_level;
+var loc_id;
+
 
 ;(function(window) {
 
@@ -176,5 +186,89 @@
 
 
 	init();
+
+		//Search functionality
+
+	  $('#node-search-btn').click(function(event) {
+	    event.preventDefault();
+			console.log('click');
+
+	    var searched_node = $('#searched-node').val()
+	    var url = '/search';
+
+	    //ajax call to backend to retrieve location
+	    $.get(url, {searched_node: searched_node})
+	      .done(function(response) {
+	        loc_id = response.data_space;
+					selected_level = response.selected_level;
+
+	        console.log(loc_id);
+
+	        $('.level__rooms').children().each(function(){
+
+	          if ($(this).data("space") == loc_id) {
+	            //open up relevant floor
+							showLocationLevel(selected_level);
+
+							var room = $(this);
+							var rect = $(this).find('rect')
+
+							animate(selected_level, rect);
+	            // highlight location
+	            $(this).find($('.cls-1')).css("fill","blue");
+	          } else {
+	            $(this).find($('.cls-1')).css("fill","white");
+	          }
+	        });
+
+	      }, "json")
+	  });
+
+	function showLocationLevel(selected_level) {
+		selected_level = selected_level;
+		officeLevels.forEach(function(level, pos) {
+			if ($(level).data("level") == selected_level) {
+				showLevel(pos+1);
+			}
+		});
+	}
+
+	function animate(selected_level, rect){
+		// add in animation
+		selected_level = selected_level;
+
+		var x = parseInt(rect.css('x').slice(0,-2))
+		var y = parseInt(rect.css('y').slice(0,-2))
+
+		//determine zoom
+		var zoom = x/2 + ' ' + y/2 + ' ' + (1366/2) + ' ' + (768/2);
+
+		//zoom up the bottom layer
+		var bottomMap = $('.map-map--' + selected_level)[0];
+
+		TweenMax.set(bottomMap,
+			{attr: {viewBox: "0 0 1366 768"},
+			ease:Power2.easeInOut},
+			"+=.5"
+		);
+		TweenMax.to(bottomMap, 1.5, {attr:
+			{ viewBox: zoom }
+		});
+
+		//for each svg rectangle in the levels layer, zoom!
+		var svgRoot = $('.level--' + selected_level).children().find('svg')
+
+		svgRoot.each(function(index, svg){
+				TweenMax.set(svg,
+					{attr: {viewBox: "0 0 1366 768"},
+					ease:Power2.easeInOut},
+					"+=.5"
+			);
+
+			TweenMax.to(svg, 1.5, {attr:
+				{ viewBox: zoom }
+			});
+		});
+	};
 
 })(window);

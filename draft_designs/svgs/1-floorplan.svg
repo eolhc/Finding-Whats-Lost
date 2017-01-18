@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>1-floorplan</title>
+  <g id="GROUND">
+    <rect class="cls-1" x="257.8" y="171.53" width="850.39" height="425.2"/>
+  </g>
+  <g id="ROOMS">
+    <rect id="toilets" class="cls-1" x="767.88" y="171.64" width="141.73" height="70.87"/>
+    <rect id="office-3" class="cls-1" x="726.16" y="270.58" width="85.04" height="99.21"/>
+    <rect id="kitchen" class="cls-1" x="569.54" y="171.27" width="198.43" height="99.21"/>
+    <rect id="office-2" class="cls-1" x="853.16" y="270.58" width="85.04" height="99.21"/>
+    <rect id="NA" class="cls-1" x="810.75" y="270.58" width="42.45" height="99.21"/>
+    <rect id="reception" class="cls-1" x="909.54" y="171.27" width="198.43" height="99.21"/>
+    <rect id="office-1" class="cls-1" x="937.71" y="270.27" width="170.08" height="99.21"/>
+  </g>
+</svg>
