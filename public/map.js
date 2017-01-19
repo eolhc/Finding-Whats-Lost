@@ -195,7 +195,7 @@ var levelShowing;
 	    event.preventDefault();
 			console.log('click');
 
-	    var searched_item = $('#searched-item').val()
+	    var searched_item = $('#searched-item').val().toLowerCase();
 	    var url = '/search';
 
 	    //ajax call to backend to retrieve location
