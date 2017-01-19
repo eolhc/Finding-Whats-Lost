@@ -7,14 +7,14 @@ require 'sinatra/json'
 require_relative 'config/db_config'
 
 require_relative 'models/location'
-require_relative 'models/node'
+require_relative 'models/item'
 
 
 
 
 get '/' do
 
-  #using node ID i want to retrieve the location
+  #using item ID i want to retrieve the location
 
 
 
@@ -25,8 +25,8 @@ end
 get '/search' do
 
   # assume that this is movement id instead
-  node = Node.find(params[:searched_node])
-  data_space = node.tag_location_id
+  item = Item.find_by(name: params[:searched_item])
+  data_space = item.tag_location_id
   level = Location.find(data_space).level
   # data_space = Location.find(tag_loc_id)
   # chicken = data_space

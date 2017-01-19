@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
 
-  has_many :nodes, dependent: :destroy
+  has_many :items, dependent: :destroy
   
 end

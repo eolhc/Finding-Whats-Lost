@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
 
-  $('#node-search-btn').click(function(event) {
+  $('#item-search-btn').click(function(event) {
     event.preventDefault();
 
-    var searched_node = $('#searched-node').val()
+    var searched_item = $('#searched-item').val()
     var url = '/search';
 
 
     //ajax call to backend to retrieve location
-    $.get(url, {searched_node: searched_node})
+    $.get(url, {searched_item: searched_item})
       .done(function(response) {
         var loc_id = response.data_space;
         console.log(loc_id)

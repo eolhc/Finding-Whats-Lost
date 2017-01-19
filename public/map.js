@@ -7,6 +7,8 @@ var isExpanded;
 var mapContainerEl;
 var selected_level;
 var loc_id;
+var isNavigating;
+var levelShowing;
 
 
 ;(function(window) {
@@ -178,7 +180,7 @@ var loc_id;
 		});
 
 		// filter the spaces for this level
-		showLevelSpaces();
+		// showLevelSpaces();
 
 		// hide the previous level´s rooms
 		removeRooms(currentLevel);
@@ -189,15 +191,15 @@ var loc_id;
 
 		//Search functionality
 
-	  $('#node-search-btn').click(function(event) {
+	  $('#item-search-btn').click(function(event) {
 	    event.preventDefault();
 			console.log('click');
 
-	    var searched_node = $('#searched-node').val()
+	    var searched_item = $('#searched-item').val()
 	    var url = '/search';
 
 	    //ajax call to backend to retrieve location
-	    $.get(url, {searched_node: searched_node})
+	    $.get(url, {searched_item: searched_item})
 	      .done(function(response) {
 	        loc_id = response.data_space;
 					selected_level = response.selected_level;
@@ -205,12 +207,29 @@ var loc_id;
 	        console.log(loc_id);
 
 	        $('.level__rooms').children().each(function(){
+						var svg = $(this).find($('svg'));
+						var rect = $(this).find($('rect'));
+						var x = rect.attr('x');
+						var y = rect.attr('y');
+						var location_name = rect.attr('id');
+
+						if (location_name != "NA") {
+							showLocationNames(svg, location_name, x, y);
+						}
 
 	          if ($(this).data("space") == loc_id) {
 	            //open up relevant floor
-							showLocationLevel(selected_level);
 
-							var room = $(this);
+
+							if (typeof levelShowing == "undefined") {
+								showLocationLevel(selected_level);
+							} else if (levelShowing !== selected_level) {
+								showAllLevels();
+								showLocationLevel(selected_level);
+							}
+
+							// showLocationLevel(selected_level);
+
 							var rect = $(this).find('rect')
 
 							animate(selected_level, rect);
@@ -224,13 +243,33 @@ var loc_id;
 	      }, "json")
 	  });
 
+		function showLocationNames(svg, location_name, x, y) {
+
+		var location_name = location_name;
+		var svg = svg;
+		var x = x * 1.01;
+		var y = y * 1.2;
+
+		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.setAttribute('x', x);
+		text.setAttribute('y', y);
+		text.setAttribute('fill', '#000');
+		text.textContent = location_name;
+
+		svg.append(text);
+		console.log(text)
+
+	}
+
 	function showLocationLevel(selected_level) {
 		selected_level = selected_level;
+
 		officeLevels.forEach(function(level, pos) {
 			if ($(level).data("level") == selected_level) {
 				showLevel(pos+1);
+				levelShowing = selected_level;
 			}
-		});
+		})
 	}
 
 	function animate(selected_level, rect){
