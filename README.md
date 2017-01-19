@@ -1,4 +1,4 @@
-# [Find What's Lost] (http://findingwhatslost.herokuapp.com)
+# [Finding What's Lost] (http://findingwhatslost.herokuapp.com)
 
 A tiny demo of an interactive map!
 
