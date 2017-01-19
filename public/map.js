@@ -63,19 +63,6 @@ var levelShowing;
 		initEvents();
 	}
 
-	/**
-	 * Initialize/Bind events fn.
-	 */
-	function initEvents() {
-		// click on a Mall´s level
-		officeLevels.forEach(function(level, pos) {
-			level.addEventListener('click', function() {
-				// shows this level
-				showLevel(pos+1);
-			});
-		});
-
-	}
 
 
 	function showLevel(level) {
