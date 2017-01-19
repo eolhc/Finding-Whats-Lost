@@ -7,11 +7,11 @@ options = {
 
 ActiveRecord::Base.establish_connection(options)
 
-
+# 
 # ActiveRecord::Base.establish_connection(
 #   :adapter => "mysql",
 #   :host => "192.168.15.4",
-#   :username => "root",
-#   :password => "",
-#   :database => "db"
+#   :username => "datasam_admin",
+#   :password => "datasam",
+#   :database => "asset_tracking"
 # )

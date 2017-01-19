@@ -4,7 +4,7 @@ var officeLevels;
 var officeLevelsTotal;
 var rooms;
 var isExpanded;
-var containerEl;
+var mapContainerEl;
 var selected_level;
 var loc_id;
 
@@ -54,7 +54,7 @@ var loc_id;
 		selectedLevel,
 		rooms = [].slice.call(officeLevelsEl.querySelectorAll('.room')),
 		isExpanded,
-		containerEl = document.querySelector('.container');
+		mapContainerEl = document.querySelector('.mapContainer');
 
 	function init() {
 		// init/bind events
