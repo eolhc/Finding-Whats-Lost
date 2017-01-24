@@ -421,6 +421,12 @@ button:focus {
   }
 
   .office {
-    margin-top: 50%;
+    margin-top: 10%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .office {
+    margin-top: 30%;
   }
 }
