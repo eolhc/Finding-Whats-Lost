@@ -58,32 +58,12 @@ var levelShowing;
 		isExpanded,
 		mapContainerEl = document.querySelector('.mapContainer');
 
-	// function init() {
-	// 	// init/bind events
-	// 	initEvents();
-	// }
-
-	/**
-	 * Initialize/Bind events fn.
-	 */
-	// function initEvents() {
-	// 	// click on a Mall´s level
-	// 	officeLevels.forEach(function(level, pos) {
-	// 		level.addEventListener('click', function() {
-	// 			// shows this level
-	// 			showLevel(pos+1);
-	// 		});
-	// 	});
-	//
-	// }
-
 
 	function showLevel(level) {
 		if( isExpanded ) {
 			return false;
 		}
 
-		// update selected level val
 		selectedLevel = level;
 
 
