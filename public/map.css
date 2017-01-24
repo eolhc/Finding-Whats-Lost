@@ -419,4 +419,8 @@ button:focus {
   .main {
     width: 100vw;
   }
+
+  .office {
+    margin-top: 50%;
+  }
 }
